@@ -1,21 +1,22 @@
+import enUs from './en-us.ftl?raw';
+import zhHans from './zh-hans.ftl?raw';
+import zhHant from './zh-hant.ftl?raw';
 import {createFluentVue} from 'fluent-vue'
 import {FluentBundle, FluentResource} from '@fluent/bundle'
 import {negotiateLanguages} from '@fluent/langneg'
 
-const supportedLocales = ['en-US', 'zh-HANS', 'zh-HANT']
-const defaultLocale = 'zh-HANS'
+// 初始化语言包
+const enBundle = new FluentBundle('en-US');
+enBundle.addResource(new FluentResource(enUs));
 
-const userLocales = navigator.languages || [defaultLocale]
-const currentLocale = negotiateLanguages(userLocales, supportedLocales, {defaultLocale})[0]
+const zhHansBundle = new FluentBundle('zh-Hans');
+zhHansBundle.addResource(new FluentResource(zhHans));
 
-const bundle = new FluentBundle(currentLocale)
-const resource = new FluentResource(`
-hello = Hello, world!
-`)
-bundle.addResource(resource)
+const zhHantBundle = new FluentBundle('zh-Hant');
+zhHantBundle.addResource(new FluentResource(zhHant));
 
 const fluentVue = createFluentVue({
-    bundles: [bundle]
+  bundles: [enBundle, zhHansBundle, zhHantBundle] // 配置 bundles
 })
 
 export default fluentVue

@@ -1,33 +1,36 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import Home from '@/pages/Home.vue'
-import World from '@/pages/World.vue'
-import Avatar from '@/pages/Avatar.vue'
-import Group from '@/pages/Group.vue'
+import Home from '@/pages/Home.vue';
+import Video from '@/pages/Video.vue';
+import Posts from '@/pages/Posts.vue';
+import Characters from '@/pages/Characters.vue';
+import Pricing from '@/pages/Pricing.vue';
+
+const routes = [
+    {
+        path: '/',
+        component: Home,
+    },
+    {
+        path: '/video',
+        component: Video,
+    },
+    {
+        path: '/posts',
+        component: Posts,
+    },
+    {
+        path: '/characters',
+        component: Characters,
+    },
+    {
+        path: '/pricing',
+        component: Pricing,
+    },
+];
 
 const router = createRouter({
     history: createWebHistory(),
-    routes: [
-        {
-            path: '/',
-            name: 'Home',
-            component: Home
-        },
-        {
-            path: '/w/:world_id',
-            name: 'World',
-            component: World
-        },
-        {
-            path: '/a/:avtar_id',
-            name: 'Avatar',
-            component: Avatar
-        },
-        {
-            path: '/g/:group_id',
-            name: 'Group',
-            component: Group
-        }
-    ]
-})
+    routes,
+});
 
-export default router
+export default router;

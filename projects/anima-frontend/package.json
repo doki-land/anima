@@ -1,11 +1,13 @@
 {
     "name": "anima-chat",
     "private": true,
+    "type": "module",
     "dependencies": {
         "@fluent/bundle": "^0.19.0",
         "@fluent/langneg": "^0.7.0",
         "@vitejs/plugin-vue": "^5.2.3",
         "fluent-vue": "^3.7.1",
+        "vant": "^4.9.18",
         "vite": "^6.2.4",
         "vue": "^3.5.13",
         "vue-router": "^4.5.0"
